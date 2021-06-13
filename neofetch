@@ -961,6 +961,12 @@ get_distro() {
                     *) distro=$(< /bedrock/etc/bedrock-release)
                 esac
 
+            elif [[ -f /etc/lenarch ]]; then
+                case $distro_shorthand in
+                    on|tiny) distro="LenArch" ;;
+                    *) distro=$(< /etc/lenarch)
+                esac
+
             elif [[ -f /etc/redstar-release ]]; then
                 case $distro_shorthand in
                     on|tiny) distro="Red Star OS" ;;
